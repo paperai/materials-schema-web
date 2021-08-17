@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	br
+	h3="Schema Hierarchy Demo"
+	br
+	h5="Types"
+	ul(id="treeType")
+		li Test1
+		li Test2
+			ul
+				li subTest21
+					ul
+						li subTest211
+						li subTest212
+				li subTest22
+	br
+	br
+	h5="Data Types"
+	ul(id="treeDataType")
+		li dTest1
+		li dTest2
+			ul
+				li dsubTest21
+					ul
+						li dsubTest211
+						li dsubTest212
+				li dsubTest22
+	script(type="text/javascript").
+		$('#treeType').treed();
+	script(type="text/javascript").
+		$('#treeDataType').treed();
