@@ -5,7 +5,7 @@
   "main": "ts-node src/index.ts",
   "scripts": {
     "start": "ts-node index.ts",
-	"app": "ts-node src/app.ts",
+    "app": "ts-node src/app/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/paperai/materials-schema-web#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "pug": "^3.0.2",
     "ts-node": "^10.2.0"
   },
   "devDependencies": {
