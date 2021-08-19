@@ -4,7 +4,7 @@ import path from "path";
 
 import { router as indexRouter } from "./routes/index";
 import { router as schemaRouter } from "./routes/schema";
-import { router as documentationRouter } from "./routes/documentation";
+import { router as typeRouter } from "./routes/type";
 // import { routerWrapper as typeRouterWrapper } from "./routes/type";
 
 // import { MaterialParser } from "../parse/MaterialParser";
@@ -24,6 +24,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/", schemaRouter);
-app.use("/", documentationRouter);
+app.use("/types/", typeRouter);
 
 app.listen(port);

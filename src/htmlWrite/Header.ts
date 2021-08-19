@@ -22,8 +22,8 @@ export class Header {
 		ret += `<div class="collapse navbar-collapse" id="navbarText">`;
 		ret += `<ul class="navbar-nav mr-auto">`;
 		ret += `<li class="nav-item"><a class="nav-link" href="/schema">${"Schema"}</a></li>`;
-		ret += `<li class="nav-item"><a class="nav-link" href="/documentation">${"Documentation"}</a></li>`;
-		ret += `<li class="nav-item"><a class="nav-link" href="#">${"About"}</a></li>`;
+		ret += `<li class="nav-item"><a class="nav-link" href="/types">${"Types"}</a></li>`;
+		ret += `<li class="nav-item"><a class="nav-link" href="/properties">${"Properties"}</a></li>`;
 		ret += `</ul>`;
 		ret += `</div>`;
 		ret += `</nav>`;
