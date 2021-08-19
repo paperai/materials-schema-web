@@ -9,9 +9,9 @@ export class MaterialParser {
 	}
 	constructor() {
 		this._schema = new Schema();
+		this.makeProperties(); // Must be first one to be executed for building usedByTypes
 		this.makeDataTypes();
 		this.makeTypes();
-		this.makeProperties();
 	}
 
 	private makeDataTypes(dataTypes = this._material.dataTypes) {
@@ -27,6 +27,13 @@ export class MaterialParser {
 
 		for (const type of types) {
 			this._schema.addType([type.id, type.name, type.properties]); // TODO: make these args type dynamically depending on input.
+
+			// Add connection from prop to type.
+			for (const propId of type.properties) {
+				if (typeof this._schema.properties[propId] !== "undefined") {
+					this._schema.properties[propId].addUsedByType(type.name);
+				}
+			}
 		}
 	}
 
