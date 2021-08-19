@@ -33,8 +33,8 @@ export class Schema {
 
 	public addProperty(args: ConstructorParameters<typeof Property>) {
 		const id = args[0];
-		if (typeof this._types[id] === "undefined") {
-			this._types[id] = new Property(...args);
+		if (typeof this._properties[id] === "undefined") {
+			this._properties[id] = new Property(...args);
 		}
 	}
 }
