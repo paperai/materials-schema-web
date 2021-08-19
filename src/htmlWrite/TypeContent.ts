@@ -1,5 +1,6 @@
 import { Schema } from "../schema/Schema";
 import { Type } from "../schema/Type";
+import { Wrapper } from "./Wrapper";
 
 export class TypeContent {
 	private schema: Schema;
@@ -51,7 +52,7 @@ export class TypeContent {
 			const thisProp = this.schema.properties[propId];
 			ret += `<tr>`;
 			ret += `<th scope="row">${propIndex}</th>`;
-			ret += `<td>${thisProp.name}</td>`;
+			ret += `<td>${Wrapper.hyperlink(["properties", thisProp.name], thisProp.name)}</td>`;
 			ret += `<td>${thisProp.makeExpectedTypesName(this.schema.types, this.schema.dataTypes).join(", ")}</td>`;
 			ret += `<td>${thisProp.description}</td>`;
 			ret += `</tr>`;
