@@ -3,10 +3,10 @@ export class Header {
 		let ret = "";
 		ret += `<head>`;
 		ret += `<title>Materials Schema Web</title>`;
-		ret += `<link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/layout.css">`;
-		ret += `<link rel="stylesheet" href="/css/tree.css">`;
-		ret += `<script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js">`;
-		ret += `</script><script src="/js/tree.js"></script><script src="/js/index.js"></script>`;
+		ret += `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">`;
+		// ret += `<link rel="stylesheet" href="/css/tree.css">`;
+		// ret += `<script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js">`;
+		// ret += `</script><script src="/js/tree.js"></script><script src="/js/index.js"></script>`;
 		ret += `</head>`;
 		return ret;
 	}
@@ -21,7 +21,7 @@ export class Header {
 			`</button>`;
 		ret += `<div class="collapse navbar-collapse" id="navbarText">`;
 		ret += `<ul class="navbar-nav mr-auto">`;
-		ret += `<li class="nav-item"><a class="nav-link" href="/schema">${"Schema"}</a></li>`;
+		// ret += `<li class="nav-item"><a class="nav-link" href="/schema">${"Schema"}</a></li>`;
 		ret += `<li class="nav-item"><a class="nav-link" href="/types">${"Types"}</a></li>`;
 		ret += `<li class="nav-item"><a class="nav-link" href="/properties">${"Properties"}</a></li>`;
 		ret += `</ul>`;

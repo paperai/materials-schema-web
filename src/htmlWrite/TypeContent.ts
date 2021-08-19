@@ -60,6 +60,8 @@ export class TypeContent {
 		return ret;
 	}
 	public writeTable() {
-		return `<div class="main-content">` + this._leadingIntro + this.writeTableHead() + this.writeTableBody() + `</div>`;
+		return (
+			`<div class="main-content m-5">` + this._leadingIntro + this.writeTableHead() + this.writeTableBody() + `</div>`
+		);
 	}
 }

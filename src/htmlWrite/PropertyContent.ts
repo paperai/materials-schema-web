@@ -37,6 +37,6 @@ export class PropertyContent {
 	}
 
 	public writeContent() {
-		return `<div class="main-content">` + this._leadingIntro + this.writeCards() + `</div>`;
+		return `<div class="main-content m-5">` + this._leadingIntro + this.writeCards() + `</div>`;
 	}
 }

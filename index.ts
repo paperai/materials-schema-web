@@ -7,8 +7,17 @@ import { TypeContent } from "./src/htmlWrite/TypeContent";
 import { PropertyContent } from "./src/htmlWrite/PropertyContent";
 
 if (typeof require !== "undefined" && require.main === module) {
-	console.log("Program Start...");
+	console.log("Html Creation Start...");
 	const parser = new MaterialParser();
+
+	// Write index.html as home page
+	fs.writeFileSync(
+		path.join(__dirname, "src", "app", "views", "index.html"),
+		new Page("", `<h1 class="m-5">Welcom to Material Schema Web</h1>`).htmlStr,
+		{
+			encoding: "utf-8",
+		}
+	);
 
 	for (const [typeId, type] of Object.entries(parser.schema.types)) {
 		const typeContent = new TypeContent(type, parser.schema);
@@ -25,7 +34,5 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
-	// console.log(pager.htmlStr);
-	// console.log("dataTypes = " + JSON.stringify(parser.schema.dataTypes, undefined, 4));
-	// console.log("types = " + JSON.stringify(parser.schema.types, undefined, 4));
+	console.log("Html Creation End...");
 }
