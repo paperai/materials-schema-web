@@ -20,7 +20,7 @@ export class Schema {
 	public addDataType(args: ConstructorParameters<typeof DataType>) {
 		const id = args[0];
 		if (typeof this.dataTypes[id] === "undefined") {
-			this.dataTypes[id] = new DataType(...args);
+			this._dataTypes[id] = new DataType(...args);
 		}
 	}
 
