@@ -1,0 +1,96 @@
+
+> materials-schema-web@1.0.0 start /home/v14/materials-schema-web
+> ts-node index.ts
+
+Program Start...
+in DataType
+in DataType
+in Type
+in Type
+in Type
+in Property
+in Property
+in Property
+in Property
+in Property
+dataTypes = {
+    "D1": {
+        "id": "D1",
+        "name": "Text"
+    },
+    "D2": {
+        "id": "D2",
+        "name": "Number"
+    }
+}
+types = {
+    "T100": {
+        "id": "T100",
+        "name": "Person",
+        "property": [
+            "P1",
+            "P2",
+            "P3",
+            "P5"
+        ]
+    },
+    "T101": {
+        "id": "T101",
+        "name": "Organization",
+        "property": [
+            "P2",
+            "P4",
+            "P1"
+        ]
+    },
+    "T102": {
+        "id": "T102",
+        "name": "Coke",
+        "property": [
+            "P3",
+            "P5"
+        ]
+    },
+    "P1": {
+        "id": "P1",
+        "name": "additionalName",
+        "expectedTypes": [
+            "D1"
+        ],
+        "description": "xxxx"
+    },
+    "P2": {
+        "id": "P2",
+        "name": "address",
+        "expectedTypes": [
+            "D1"
+        ],
+        "description": "xxxx"
+    },
+    "P3": {
+        "id": "P3",
+        "name": "height",
+        "expectedTypes": [
+            "D1",
+            "D2"
+        ],
+        "description": "The height of the item."
+    },
+    "P4": {
+        "id": "P4",
+        "name": "employee",
+        "expectedTypes": [
+            "T100"
+        ],
+        "description": "Someone working for this organization."
+    },
+    "P5": {
+        "id": "P5",
+        "name": "weight",
+        "expectedTypes": [
+            "D1",
+            "D2"
+        ],
+        "description": "The weight of the item."
+    }
+}
