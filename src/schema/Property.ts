@@ -11,21 +11,18 @@ export class Property {
 	constructor(
 		readonly id: string,
 		readonly name: string,
-		readonly expectedTypes: string[] = [],
+		readonly expectedTypes: string[] = [], // Type in Id format.
 		readonly description = ""
 	) {
 		console.log("in Property");
 		this._usedByTypesName = new Set();
 	}
 
-	public makeExpectedTypesName(recordedTypes: Record<string, Type>, recordedDataTypes: Record<string, DataType>) {
+	public makeExpectedTypesName(recordedTypes: Record<string, Type> | Record<string, DataType>) {
 		const expectedTypesName: string[] = [];
 		for (const typeIdOrDataTypeId of this.expectedTypes) {
 			if (typeof recordedTypes[typeIdOrDataTypeId] !== "undefined") {
 				expectedTypesName.push(recordedTypes[typeIdOrDataTypeId].name);
-			}
-			if (typeof recordedDataTypes[typeIdOrDataTypeId] !== "undefined") {
-				expectedTypesName.push(recordedDataTypes[typeIdOrDataTypeId].name);
 			}
 		}
 		return expectedTypesName;

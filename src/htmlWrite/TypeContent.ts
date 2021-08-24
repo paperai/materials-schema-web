@@ -55,10 +55,15 @@ export class TypeContent {
 		let ret = "";
 		if (typeof this.schema.properties[propId] !== "undefined") {
 			const thisProp = this.schema.properties[propId];
+			const thisTypesName = thisProp.makeExpectedTypesName(this.schema.types);
+			const thisDataTypesName = thisProp.makeExpectedTypesName(this.schema.dataTypes);
 			ret += `<tr>`;
 			ret += `<th scope="row">${propIndex}</th>`;
-			ret += `<td>${Wrapper.hyperlinkOne(["properties", thisProp.name], thisProp.name)}</td>`;
-			ret += `<td>${thisProp.makeExpectedTypesName(this.schema.types, this.schema.dataTypes).join(", ")}</td>`;
+			ret += `<td>${Wrapper.hyperlinkOne("properties", thisProp.name, this.schema)}</td>`;
+			ret +=
+				`<td>` +
+				[...thisDataTypesName, ...Wrapper.hyperlinkMany("types", thisTypesName, this.schema)].join(", ") +
+				`</td>`;
 			ret += `<td>${thisProp.description}</td>`;
 			ret += `</tr>`;
 		}

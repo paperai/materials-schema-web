@@ -47,9 +47,9 @@ export class TypesList {
 		const thisPropNames = type.makePropertiesName(this.schema.properties);
 		ret += `<tr class="search-row" data-name="${type.name}">`;
 		ret += `<th scope="row">${typeIndex}</th>`;
-		ret += `<td>${Wrapper.hyperlinkOne(["types", type.name], type.name)}</td>`;
-		ret += `<td scope="row">${type.id}</th>`;
-		ret += `<td>${Wrapper.hyperlinkMany("properties", thisPropNames, thisPropNames).join(", ")}</td>`;
+		ret += `<td>${Wrapper.hyperlinkOne("types", type.name, this.schema)}</td>`;
+		ret += `<td scope="row">${type.id}</td>`;
+		ret += `<td>${Wrapper.hyperlinkMany("properties", thisPropNames, this.schema).join(", ")}</td>`;
 		ret += `</tr>`;
 		return ret;
 	}
