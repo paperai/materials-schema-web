@@ -20,11 +20,20 @@ export class Header {
 			`<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">` +
 			`<span class="navbar-toggler-icon"></span>` +
 			`</button>`;
+
+		// Navbar Left Side
 		ret += `<div class="collapse navbar-collapse" id="navbarText">`;
 		ret += `<ul class="navbar-nav mr-auto">`;
-		// ret += `<li class="nav-item"><a class="nav-link" href="/schema">${"Schema"}</a></li>`;
 		ret += `<li class="nav-item"><a class="nav-link" href="/types">${"Types"}</a></li>`;
 		ret += `<li class="nav-item"><a class="nav-link" href="/properties">${"Properties"}</a></li>`;
+		ret += `</ul>`;
+
+		// Navbar Right Side
+		ret += `<ul class="navbar-nav ml-auto">`;
+		ret +=
+			`<li class="nav-item" style="color: yellow;">` +
+			`Last Deployed Date: ${new Date().toLocaleDateString("en-ZA")}` +
+			`</li>`;
 		ret += `</ul>`;
 		ret += `</div>`;
 		ret += `</nav>`;
