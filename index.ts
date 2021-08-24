@@ -6,6 +6,7 @@ import { Page } from "./src/htmlWrite/Page";
 import { TypeContent } from "./src/htmlWrite/TypeContent";
 import { PropertyContent } from "./src/htmlWrite/PropertyContent";
 import { TypesList } from "./src/htmlWrite/TypesList";
+import { PropertiesList } from "./src/htmlWrite/PropertiesList";
 
 if (typeof require !== "undefined" && require.main === module) {
 	console.log("Html Creation Start...");
@@ -40,6 +41,16 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
+
+	// Write types.html
+	const propertiesList = new PropertiesList(parser.schema);
+	fs.writeFileSync(
+		path.join(__dirname, "src", "app", "views", "properties.html"),
+		new Page("", propertiesList.write()).htmlStr,
+		{
+			encoding: "utf-8",
+		}
+	);
 
 	for (const [propId, prop] of Object.entries(parser.schema.properties)) {
 		const propContent = new PropertyContent(prop, parser.schema);
