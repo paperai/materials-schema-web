@@ -14,9 +14,9 @@ export class PropertyContent {
 		let ret = "";
 		ret += this.writeCard(
 			"Values Expected to Be One of These Types",
-			this.property.makeExpectedTypesName(this.schema.types, this.schema.dataTypes)
+			this.property.makeExpectedTypesName(this.schema.types, this.schema.dataTypes).sort()
 		);
-		ret += this.writeCard("Used by These Types", Array.from(this.property.usedByTypesName), true);
+		ret += this.writeCard("Used by These Types", Array.from(this.property.usedByTypesName).sort(), true);
 		return ret;
 	}
 
@@ -27,7 +27,7 @@ export class PropertyContent {
 
 		ret += `<ul class="list-group list-group-flush">`;
 		for (const item of cardItems) {
-			const displayItem = useWrapper ? Wrapper.hyperlink(["types", item], item) : item; // TODO: Might need further update for considering DataType.
+			const displayItem = useWrapper ? Wrapper.hyperlinkOne(["types", item], item) : item; // TODO: Might need further update for considering DataType.
 			ret += `<li class="list-group-item">${displayItem}</li>`;
 		}
 
