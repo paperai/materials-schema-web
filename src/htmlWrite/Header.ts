@@ -4,6 +4,7 @@ export class Header {
 		ret += `<head>`;
 		ret += `<title>Materials Schema Web</title>`;
 		ret += `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">`;
+		ret += `<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>`;
 		// ret += `<link rel="stylesheet" href="/css/tree.css">`;
 		// ret += `<script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js">`;
 		// ret += `</script><script src="/js/tree.js"></script><script src="/js/index.js"></script>`;
