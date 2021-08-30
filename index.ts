@@ -8,8 +8,13 @@ import { PropertyContent } from "./src/htmlWrite/PropertyContent";
 import { TypesList } from "./src/htmlWrite/TypesList";
 import { PropertiesList } from "./src/htmlWrite/PropertiesList";
 
+/**
+ * Write static html pages based on "material.json".
+ */
 if (typeof require !== "undefined" && require.main === module) {
-	console.log("Html Creation Start...");
+	console.log("\x1b[32m");
+	console.log("Html Creation Start... \n", "\x1b[0m");
+
 	const parser = new MaterialParser();
 
 	// Write index.html as home page
@@ -29,6 +34,7 @@ if (typeof require !== "undefined" && require.main === module) {
 	});
 
 	// Write types.html
+	console.log("Start writing  Type html pages...");
 	const typeList = new TypesList(parser.schema);
 	fs.writeFileSync(path.join(__dirname, "src", "app", "views", "types.html"), new Page("", typeList.write()).htmlStr, {
 		encoding: "utf-8",
@@ -41,8 +47,10 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
+	console.log("Finish writing Type html pages. \n");
 
-	// Write types.html
+	// Write properties.html
+	console.log("Start writing Propertie html pages...");
 	const propertiesList = new PropertiesList(parser.schema);
 	fs.writeFileSync(
 		path.join(__dirname, "src", "app", "views", "properties.html"),
@@ -59,5 +67,8 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
-	console.log("Html Creation End...");
+	console.log("Finish writing Propertie html pages...");
+
+	console.log("\x1b[32m", "\n");
+	console.log("Html Creation End...", "\x1b[0m");
 }
