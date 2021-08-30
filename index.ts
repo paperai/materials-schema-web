@@ -9,7 +9,7 @@ import { TypesList } from "./src/htmlWrite/TypesList";
 import { PropertiesList } from "./src/htmlWrite/PropertiesList";
 
 /**
- * Write static html pages based on "material.json".
+ * Write static html pages based on `material.json`.
  */
 if (typeof require !== "undefined" && require.main === module) {
 	console.log("\x1b[32m");
@@ -67,8 +67,27 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
-	console.log("Finish writing Propertie html pages...");
+	console.log("Finish writing Propertie html pages... \n");
 
-	console.log("\x1b[32m", "\n");
+	console.log("Start writing api html pages...");
+	const apiHtmlStartStr = `<html><head><meta http-equiv="content-type" content="application/json; charset=utf-8"/></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">`;
+	const apiHtmlEndStr = `</pre></body></html>`;
+	fs.writeFileSync(
+		path.join(__dirname, "src", "app", "views", "api", "types.html"),
+		apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.types)) + apiHtmlEndStr,
+		{
+			encoding: "utf-8",
+		}
+	);
+	fs.writeFileSync(
+		path.join(__dirname, "src", "app", "views", "api", "properties.html"),
+		apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.properties)) + apiHtmlEndStr,
+		{
+			encoding: "utf-8",
+		}
+	);
+	console.log("Finish writing api html pages... \n");
+
+	console.log("\x1b[32m");
 	console.log("Html Creation End...", "\x1b[0m");
 }

@@ -2,6 +2,8 @@ import ejs from "ejs"; // Use ejs to help organize html files like view engine.
 import express from "express";
 import path from "path";
 
+import { router as apiTypeRouter } from "./routes/api/type";
+import { router as apiPropertyRouter } from "./routes/api/property";
 import { router as indexRouter } from "./routes/index";
 // import { router as schemaRouter } from "./routes/schema";
 import { router as typeRouter } from "./routes/type";
@@ -27,5 +29,7 @@ app.use("/", indexRouter);
 // app.use("/", schemaRouter);
 app.use("/types/", typeRouter);
 app.use("/properties/", propertyRouter);
+app.use("/api/types/", apiTypeRouter);
+app.use("/api/properties/", apiPropertyRouter);
 
 app.listen(port);
