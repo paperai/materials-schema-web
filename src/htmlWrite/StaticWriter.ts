@@ -17,7 +17,7 @@ export class StaticWriter {
 			$(function() {
 				$("#searchInput").on("keyup", function() {
 					$(".search-row").hide();
-					var searchVal = $("#searchInput").val();
+					var searchVal = $("#searchInput").val().toLowerCase();
 					if (searchVal == "") {
 						$(".search-row").show();
 					} else {
