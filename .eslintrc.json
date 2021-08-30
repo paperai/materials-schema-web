@@ -94,6 +94,7 @@
 			}
 		],
 		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
 		"no-irregular-whitespace": "off",
 		"@typescript-eslint/ban-types": "off"
 	}

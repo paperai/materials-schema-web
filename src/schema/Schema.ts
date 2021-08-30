@@ -2,6 +2,8 @@
 import { DataType } from "./DataType";
 import { Type } from "./Type";
 import { Property } from "./Property";
+
+// TODO: refactor to reduce similar codes.
 export class Schema {
 	private _dataTypes: Record<string, DataType> = {}; // {id1: dataType1, id2: dataType2}
 	private _types: Record<string, Type> = {};
@@ -15,6 +17,22 @@ export class Schema {
 	}
 	public get properties() {
 		return this._properties;
+	}
+
+	public get typesNameToId() {
+		const ret: Record<string, string> = {};
+		Object.values(this._types).map((type) => {
+			ret[type.name] = type.id;
+		});
+		return ret;
+	}
+
+	public get propsNameToId() {
+		const ret: Record<string, string> = {};
+		Object.values(this._properties).map((prop) => {
+			ret[prop.name] = prop.id;
+		});
+		return ret;
 	}
 
 	public addDataType(args: ConstructorParameters<typeof DataType>) {

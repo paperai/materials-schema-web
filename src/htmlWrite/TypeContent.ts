@@ -1,3 +1,4 @@
+import { StaticParser } from "../parse/StaticParser";
 import { Schema } from "../schema/Schema";
 import { Type } from "../schema/Type";
 import { Wrapper } from "./Wrapper";
@@ -36,7 +37,11 @@ export class TypeContent {
 			if (typeof this.type.properties === "undefined") return ret; // Return if no prop is defined.
 
 			let propIndex = 0;
-			for (const propId of this.type.properties) {
+			const propNames = this.type.properties.map((propId) => {
+				return this.schema.properties[propId].name;
+			});
+			for (const propName of StaticParser.makeSortedName(propNames)) {
+				const propId = this.schema.propsNameToId[propName];
 				if (typeof this.schema.properties[propId] !== "undefined") {
 					propIndex += 1;
 					ret += this.writeThisProp(propIndex, propId);
@@ -50,10 +55,15 @@ export class TypeContent {
 		let ret = "";
 		if (typeof this.schema.properties[propId] !== "undefined") {
 			const thisProp = this.schema.properties[propId];
+			const thisTypesName = thisProp.makeExpectedTypesName(this.schema.types);
+			const thisDataTypesName = thisProp.makeExpectedTypesName(this.schema.dataTypes);
 			ret += `<tr>`;
 			ret += `<th scope="row">${propIndex}</th>`;
-			ret += `<td>${Wrapper.hyperlink(["properties", thisProp.name], thisProp.name)}</td>`;
-			ret += `<td>${thisProp.makeExpectedTypesName(this.schema.types, this.schema.dataTypes).join(", ")}</td>`;
+			ret += `<td>${Wrapper.hyperlinkOne("properties", thisProp.name, this.schema)}</td>`;
+			ret +=
+				`<td>` +
+				[...thisDataTypesName, ...Wrapper.hyperlinkMany("types", thisTypesName, this.schema)].join(", ") +
+				`</td>`;
 			ret += `<td>${thisProp.description}</td>`;
 			ret += `</tr>`;
 		}

@@ -5,19 +5,34 @@ import { MaterialParser } from "./src/parse/MaterialParser";
 import { Page } from "./src/htmlWrite/Page";
 import { TypeContent } from "./src/htmlWrite/TypeContent";
 import { PropertyContent } from "./src/htmlWrite/PropertyContent";
+import { TypesList } from "./src/htmlWrite/TypesList";
+import { PropertiesList } from "./src/htmlWrite/PropertiesList";
 
 if (typeof require !== "undefined" && require.main === module) {
 	console.log("Html Creation Start...");
 	const parser = new MaterialParser();
 
 	// Write index.html as home page
-	fs.writeFileSync(
-		path.join(__dirname, "src", "app", "views", "index.html"),
-		new Page("", `<h1 class="m-5">Welcom to Material Schema Web</h1>`).htmlStr,
-		{
-			encoding: "utf-8",
-		}
-	);
+	let indexContent = `<div class="m-5">`;
+	indexContent += `<h1>Welcome to Material Schema Web</h1>`;
+	indexContent += `<div class="tot-count m-5">`;
+	indexContent += `<h4 class="type-count">Types all list (<a href="/types">${
+		Object.keys(parser.schema.types).length
+	}</a>)</h4>`;
+	indexContent += `<h4 class="prop-count">Properties all list (<a href="/properties">${
+		Object.keys(parser.schema.properties).length
+	}</a>)</h4>`;
+	indexContent += `</div>`;
+	indexContent += `</div>`;
+	fs.writeFileSync(path.join(__dirname, "src", "app", "views", "index.html"), new Page("", indexContent).htmlStr, {
+		encoding: "utf-8",
+	});
+
+	// Write types.html
+	const typeList = new TypesList(parser.schema);
+	fs.writeFileSync(path.join(__dirname, "src", "app", "views", "types.html"), new Page("", typeList.write()).htmlStr, {
+		encoding: "utf-8",
+	});
 
 	for (const [typeId, type] of Object.entries(parser.schema.types)) {
 		const typeContent = new TypeContent(type, parser.schema);
@@ -26,6 +41,16 @@ if (typeof require !== "undefined" && require.main === module) {
 			encoding: "utf-8",
 		});
 	}
+
+	// Write types.html
+	const propertiesList = new PropertiesList(parser.schema);
+	fs.writeFileSync(
+		path.join(__dirname, "src", "app", "views", "properties.html"),
+		new Page("", propertiesList.write()).htmlStr,
+		{
+			encoding: "utf-8",
+		}
+	);
 
 	for (const [propId, prop] of Object.entries(parser.schema.properties)) {
 		const propContent = new PropertyContent(prop, parser.schema);
