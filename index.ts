@@ -69,24 +69,26 @@ if (typeof require !== "undefined" && require.main === module) {
 	}
 	console.log("Finish writing Propertie html pages... \n");
 
-	console.log("Start writing api html pages...");
-	const apiHtmlStartStr = `<html><head><meta http-equiv="content-type" content="application/json; charset=utf-8"/></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">`;
-	const apiHtmlEndStr = `</pre></body></html>`;
+	console.log("Start writing api json pages...");
+	// const apiHtmlStartStr = `<html><script>myHeaders = response.headers;myHeaders.set('Content-Type', 'application/json');</script><head><meta http-equiv="content-type" content="application/json"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">`;
+	// const apiHtmlEndStr = `</pre></body></html>`;
 	fs.writeFileSync(
-		path.join(__dirname, "src", "app", "views", "api", "types.html"),
-		apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.types)) + apiHtmlEndStr,
+		path.join(__dirname, "src", "app", "views", "api", "types.json"),
+		// apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.types)) + apiHtmlEndStr,
+		JSON.stringify(Object.values(parser.schema.types)),
 		{
 			encoding: "utf-8",
 		}
 	);
 	fs.writeFileSync(
-		path.join(__dirname, "src", "app", "views", "api", "properties.html"),
-		apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.properties)) + apiHtmlEndStr,
+		path.join(__dirname, "src", "app", "views", "api", "properties.json"),
+		// apiHtmlStartStr + JSON.stringify(Object.values(parser.schema.properties)) + apiHtmlEndStr,
+		JSON.stringify(Object.values(parser.schema.properties)),
 		{
 			encoding: "utf-8",
 		}
 	);
-	console.log("Finish writing api html pages... \n");
+	console.log("Finish writing api json pages... \n");
 
 	console.log("\x1b[32m");
 	console.log("Html Creation End...", "\x1b[0m");
