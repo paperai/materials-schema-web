@@ -1,5 +1,10 @@
+/**
+ * Primitive data types, such as `string`, `integer`, `boolean`, etc.
+ */
 export class DataType {
-	constructor(readonly id: string, readonly name: string) {
-		console.log("in DataType");
-	}
+	/**
+	 * @param id - unique; recommend to starts with "D" for the ease of distinguishment
+	 * @param name - should be assigned in pascalcase
+	 */
+	constructor(readonly id: string, readonly name: string) {}
 }

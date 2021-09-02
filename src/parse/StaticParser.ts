@@ -18,4 +18,9 @@ export class StaticParser {
 		});
 		return ret.sort();
 	}
+
+	public static findDuplicate<T>(vals: T[]) {
+		const allDuplicates = vals.filter((val, i) => vals.indexOf(val) != i);
+		return [...new Set(allDuplicates)];
+	}
 }
