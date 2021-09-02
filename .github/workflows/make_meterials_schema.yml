@@ -1,0 +1,29 @@
+# This is a workflow to create Type-Property bidirected schema.
+
+name: Make_Materials_Schema_Web
+
+on:
+  push:
+    paths:
+      - 'material.json'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  make_materials_schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: rm -f ./src/app/**/*.html # use -f to silence error in case no files exist.
+      - run: npm start
+      - run: git status
+      - run: git add ./src/app/views/*
+      - run: git config --global user.name 'hiroshiakutsu'
+      - run: git config --global user.email 'h.akutsu@j-legalsystem.com'
+      - run: git commit -m "Auto-deployed on `date +'%Y-%m-%d'` from action Make_Materials_Schema_Web"
+      - run: git push
