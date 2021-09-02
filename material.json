@@ -6,7 +6,7 @@
 	"types": [
 		{"id": "T100", "name": "Person", "properties": ["P1", "P2", "P3", "P5"]},
 		{"id": "T101", "name": "Organization", "properties": ["P2", "P4", "P1"]},
-		{"id": "T102", "name": "Coke", "properties": ["P3", "P100"]}
+		{"id": "T102", "name": "Coke", "properties": ["P3", "P6"]}
 	],
 	"properties": [
 		{"id": "P1", "name": "additionalName", "expectedTypes": ["D1"], "description": "xxxx"},
@@ -14,6 +14,6 @@
 		{"id": "P3", "name": "height", "expectedTypes": ["D1", "D2"], "description": "The height of the item."},
 		{"id": "P4", "name": "employee", "expectedTypes": ["T100"], "description": "Someone working for this organization."},
 		{"id": "P5", "name": "weight", "expectedTypes": ["D1", "D2"], "description": "The weight of the item."},
-		{"id": "P6", "name": "test_action", "expectedTypes": ["D3", "T107"], "description": "I am here to test action."}
+		{"id": "P6", "name": "test_action", "expectedTypes": ["D2", "T100"], "description": "I am here to test action."}
 	]
 }
