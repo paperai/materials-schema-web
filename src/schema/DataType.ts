@@ -4,7 +4,7 @@
 export class DataType {
 	/**
 	 * @param id - unique; recommend to starts with "D" for the ease of distinguishment
-	 * @param name - should be assigned in camelcase
+	 * @param name - should be assigned in pascalcase
 	 */
 	constructor(readonly id: string, readonly name: string) {}
 }

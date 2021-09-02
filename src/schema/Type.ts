@@ -3,7 +3,7 @@ import { Property } from "./Property";
 export class Type {
 	/**
 	 * @param id - unique; recommend to starts with "T" for the ease of distinguishment
-	 * @param name - should be assigned in camelcase
+	 * @param name - should be assigned in pascalcase
 	 * @param properties - all `Property`s' `id` this Type has
 	 */
 	constructor(readonly id: string, readonly name: string, readonly properties: string[] = []) {}

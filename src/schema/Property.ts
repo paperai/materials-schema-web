@@ -13,7 +13,7 @@ export class Property {
 
 	/**
 	 * @param id - unique; recommend to starts with "P" for the ease of distinguishment
-	 * @param name - should be assigned in camelcase
+	 * @param name - should be assigned in pascalcase
 	 * @param expectedTypes - all `Type`s' `id` in which this `Property` can be found
 	 * @param description
 	 */
