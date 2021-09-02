@@ -46,23 +46,23 @@ if (typeof require !== "undefined" && require.main === module) {
 	let hasError = false;
 	// Set error if any duplicate id exists.
 	if (hasDuplicateId) {
-		console.log("Please resolve all duplicate Ids.\n");
+		console.log("\x1b[31m" + "Please resolve all duplicate Ids.\n");
 		hasError = true;
 	}
 	if (absentPropertyIds.length > 0) {
-		console.log("These Properties are not defined in `Property`, but appears in Types' reference.");
+		console.log("\x1b[31m" + "These Properties are not defined in `Property`, but appears in Types' reference.");
 		console.log(absentPropertyIds.join(",") + "\n");
 		hasError = true;
 	}
 	if (absentTypeIds.length > 0) {
-		console.log("These Types are not defined in `Type`, but appears in Properties' reference.");
+		console.log("\x1b[31m" + "These Types are not defined in `Type`, but appears in Properties' reference.");
 		console.log(absentTypeIds.join(",") + "\n");
 		hasError = true;
 	}
-	console.log("\x1b[0m");
 
 	if (hasError) {
-		console.log("Please resolve the problems and then execute this program again.");
+		console.log("\x1b[35m" + "Please resolve the problems and then execute this program again." + "\x1b[0m");
 		process.exit(1);
 	}
+	console.log("\x1b[0m");
 }
