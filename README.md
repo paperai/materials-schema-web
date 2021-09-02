@@ -19,7 +19,7 @@ Given arbitrary amount of ***`Type`*** s and ***`Property`*** s, this app can:
 
 ## Usage
 ### To update ***Type-Property*** relationship:
-   1. Modify the [material.json](https://github.com/paperai/materials-schema-web/blob/c7295a039283f013ebbefbba35543efb51328fe5/material.json) in the root directory according to the structure below.
+   1. Modify the [material.json](https://github.com/paperai/materials-schema-web/blob/c7295a039283f013ebbefbba35543efb51328fe5/material.json) in the root directory according to the [rules](https://github.com/paperai/materials-schema-web/blob/main/README.md#materialjson) below.
    2. Run `npm start` to generate all static pages.
 
 The generated static pages can now be found in the path **`src/app/views/`**
@@ -63,3 +63,6 @@ A simplest sample of `material.json` looks like this:
    - *name*: string
    - *expectedTypes*: array of string; all `Type`s' `id` in which this `Property` can be found
    - *description*: string
+
+## License
+ TBD
