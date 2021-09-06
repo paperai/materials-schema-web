@@ -10,7 +10,7 @@ export class Wrapper {
 			hasLink = true;
 		}
 		if (hasLink) {
-			return `<a href="/${typesOrProperties}/${name}">${name}</a>`;
+			return `<a href="/public/${typesOrProperties}/${name}">${name}</a>`;
 		}
 		return name;
 	}

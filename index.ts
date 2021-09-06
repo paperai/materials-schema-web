@@ -25,10 +25,12 @@ if (typeof require !== "undefined" && require.main === module) {
 	let indexContent = `<div class="m-5">`;
 	indexContent += `<h1>Welcome to Material Schema Web</h1>`;
 	indexContent += `<div class="tot-count m-5">`;
-	indexContent += `<h4 class="type-count">Types all list (<a href="/types">${
+	// Please modify link if needed.
+	indexContent += `<h4 class="type-count">Types all list (<a href="/public/types">${
 		Object.keys(parser.schema.types).length
 	}</a>)</h4>`;
-	indexContent += `<h4 class="prop-count">Properties all list (<a href="/properties">${
+	// Please modify link if needed.
+	indexContent += `<h4 class="prop-count">Properties all list (<a href="/public/properties">${
 		Object.keys(parser.schema.properties).length
 	}</a>)</h4>`;
 	indexContent += `</div>`;
