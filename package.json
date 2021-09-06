@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node index.ts",
     "app": "ts-node src/app/app.ts",
+	"validate": "ts-node src/validate.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
