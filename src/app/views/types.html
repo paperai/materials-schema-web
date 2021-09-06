@@ -1,0 +1,26 @@
+<html><head><title>Materials Schema Web</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script></head><body><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="/">Materials Schema Web</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarText"><ul class="navbar-nav mr-auto"><li class="nav-item"><a class="nav-link" href="/types">Types</a></li><li class="nav-item"><a class="nav-link" href="/properties">Properties</a></li></ul><ul class="navbar-nav ml-auto"><li class="nav-item" style="color: yellow;">Last Deployed Date: 2021/09/02</li></ul></div></nav><div class="main-content m-5"><h2 class="text-primary">Types</h2><div class="search-group my-5"><div class="input-group"><input id="searchInput" type="text" class="form-control" placeholder="Search by Name..."><span class="input-group-btn" style="width: 45%;"></span></div></div><script>
+			$(function() {
+				$("#searchInput").on("keyup", function() {
+					$(".search-row").hide();
+					var searchVal = $("#searchInput").val().toLowerCase();
+					if (searchVal == "") {
+						$(".search-row").show();
+					} else {
+						$(".search-row").each(function() {
+							var thisName = $(this).data("name").toLowerCase();
+							if (thisName.indexOf(searchVal) !== -1) {
+								$(this).show();
+							}
+						});
+					}
+				})
+			})
+			</script><table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Id</th>
+				<th scope="col">Properties</th>
+			</tr>
+		</thead><tr class="search-row" data-name="Coke"><th scope="row">1</th><td><a href="/types/Coke">Coke</a></td><td scope="row">T102</td><td><a href="/properties/height">height</a>, <a href="/properties/weight">weight</a></td></tr><tr class="search-row" data-name="Organization"><th scope="row">2</th><td><a href="/types/Organization">Organization</a></td><td scope="row">T101</td><td><a href="/properties/address">address</a>, <a href="/properties/employee">employee</a>, <a href="/properties/additionalName">additionalName</a></td></tr><tr class="search-row" data-name="Person"><th scope="row">3</th><td><a href="/types/Person">Person</a></td><td scope="row">T100</td><td><a href="/properties/additionalName">additionalName</a>, <a href="/properties/address">address</a>, <a href="/properties/height">height</a>, <a href="/properties/weight">weight</a></td></tr></div></body></html>
