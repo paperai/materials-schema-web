@@ -15,7 +15,7 @@ Given arbitrary amount of ***`Type`*** s and ***`Property`*** s, this app can:
 
 ## Installation
 1. Clone this repository.
-2. Run `npm i` to install all library dependency.
+2. Run `npm ci` to install all library dependency.
 
 ## Usage
 ### To update ***Type-Property*** relationship remotely:
