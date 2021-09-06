@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: npm install
+      - run: npm ci
       - run: npm run validate
 
   make_materials_schema:
@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '14'
       - run: rm -f ./public/**/*.html # use -f to silence error in case no files exist.
-      - run: npm install
+      - run: npm ci
       - run: npm start
       - run: git status
       - run: git add ./public/*
