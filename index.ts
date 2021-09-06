@@ -26,11 +26,11 @@ if (typeof require !== "undefined" && require.main === module) {
 	indexContent += `<h1>Welcome to Material Schema Web</h1>`;
 	indexContent += `<div class="tot-count m-5">`;
 	// Please modify link if needed.
-	indexContent += `<h4 class="type-count">Types all list (<a href="/public/types">${
+	indexContent += `<h4 class="type-count">Types all list (<a href="/materials-schema-web/public/types">${
 		Object.keys(parser.schema.types).length
 	}</a>)</h4>`;
 	// Please modify link if needed.
-	indexContent += `<h4 class="prop-count">Properties all list (<a href="/public/properties">${
+	indexContent += `<h4 class="prop-count">Properties all list (<a href="/materials-schema-web/public/properties">${
 		Object.keys(parser.schema.properties).length
 	}</a>)</h4>`;
 	indexContent += `</div>`;

@@ -15,7 +15,7 @@ export class Header {
 	public get navBar() {
 		let ret = "";
 		ret += `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">`;
-		ret += `<a class="navbar-brand" href="/">${"Materials Schema Web"}</a>`;
+		ret += `<a class="navbar-brand" href="/materials-schema-web/public">${"Materials Schema Web"}</a>`;
 		ret +=
 			`<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">` +
 			`<span class="navbar-toggler-icon"></span>` +
@@ -24,8 +24,8 @@ export class Header {
 		// Navbar Left Side
 		ret += `<div class="collapse navbar-collapse" id="navbarText">`;
 		ret += `<ul class="navbar-nav mr-auto">`;
-		ret += `<li class="nav-item"><a class="nav-link" href="/types">${"Types"}</a></li>`;
-		ret += `<li class="nav-item"><a class="nav-link" href="/properties">${"Properties"}</a></li>`;
+		ret += `<li class="nav-item"><a class="nav-link" href="/materials-schema-web/public/types">${"Types"}</a></li>`;
+		ret += `<li class="nav-item"><a class="nav-link" href="/materials-schema-web/public/properties">${"Properties"}</a></li>`;
 		ret += `</ul>`;
 
 		// Navbar Right Side
